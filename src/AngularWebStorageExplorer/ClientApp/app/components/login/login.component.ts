@@ -28,12 +28,15 @@ export class LoginComponent {
 		this.loading = true;
 		this.showError = false;
 
-		let account = encodeURIComponent(this.azureAccount.nativeElement.value);
-		let key = encodeURIComponent(this.azureKey.nativeElement.value);
+		//let account = encodeURIComponent(this.azureAccount.nativeElement.value);
+        //let key = encodeURIComponent(this.azureKey.nativeElement.value);
 
-		this.utilsService.signIn(account, key).subscribe(result => {
-			localStorage.setItem('account', account);
-			localStorage.setItem('key', key);
+        var account = encodeURIComponent("cogitatestorage");
+        var key = encodeURIComponent("?sv=2018-03-28&ss=bfqt&srt=sco&sp=rl&se=2019-02-27T19:56:14Z&st=2019-02-01T11:56:14Z&spr=https,http&sig=m6bZa86lOin2Awo2Auy3d6p0SVIAG3BTjIYOnDPsFws%3D");
+
+        this.utilsService.signIn(account, key).subscribe(result => {
+            localStorage.setItem('account', account);
+            localStorage.setItem('key', key);
 
 			this.loading = false;
 			this.signedIn.emit(true);

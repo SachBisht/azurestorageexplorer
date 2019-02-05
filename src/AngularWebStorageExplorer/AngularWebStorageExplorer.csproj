@@ -15,8 +15,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts" Version="2.2.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" />
+    <PackageReference Include="System.DirectoryServices" Version="4.5.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.5.0" />
+    <PackageReference Include="System.DirectoryServices.Protocols" Version="4.5.0" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.2" />
   </ItemGroup>
 
@@ -26,16 +31,16 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="wwwroot\dist\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="wwwroot\dist\**" />
+    <EmbeddedResource Remove="wwwroot\dist\**" />
+    <None Remove="wwwroot\dist\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\base\base.component.ts" />
     <None Remove="ClientApp\app\components\errors\errors.component.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\dist\azurewebexplorer.css" />
   </ItemGroup>
 
   <ItemGroup>
